@@ -1,0 +1,84 @@
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+  font-family: 'Manrope', sans-serif;
+  color: var(--text-color);
+  font-size: 1.4rem;
+  list-style: none;
+  text-decoration: none;
+}
+
+:root {
+  font-size: 62.5%;
+  --backgrond: #000;
+  --text-color: #FFF;
+  --button: #8257E5;
+  --border: #29292E;
+  --border-menu-mobile: #A8A8B3;
+  --text-color-menu-mobile: #E1E1E6;
+}
+
+body {
+  background-color: var(--backgrond);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+}
+
+/* ========== Menu ========== */
+nav {
+  width: 91.8em;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-top: 4rem;
+}
+
+nav ul {
+  display: flex;
+  gap: 3.2rem;
+}
+
+nav button {  
+  background-color: transparent;
+  border-color: var(--button);
+  border-radius: .6rem;
+  padding: 1.1rem 3.8rem;
+}
+
+
+main{
+  
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+  margin-top: 6rem;
+}
+main h1, .stroke {
+  font-size: 8rem;
+  font-weight: 700;
+}
+
+.stroke{
+  color: var(--backgrond);
+  text-shadow: -1px -1px 0 var(--button), 1px -1px 0 var(--button), -1px 1px 0 var(--button), 1px 1px 0 var(--button);
+}
+
+.rocketcoffee{
+  height: 50.6rem;
+}
+
+.blur-top {
+  position: absolute;
+  top: 0;
+  right: 0;
+}
+
+.blur-bottom {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+}
