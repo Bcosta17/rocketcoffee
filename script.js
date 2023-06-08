@@ -9,7 +9,7 @@ const modal = document.querySelector('.modal')
 
 document.addEventListener('DOMContentLoaded', function() { // DOMContent executa depois que o html é carregado
   function checkScreenWidth() {
-    if (window.innerWidth <= 500) {
+    if (window.innerWidth <= 600) {
       buttonMenu.classList.remove('hidden')
       menu.classList.add('hidden');
       button.classList.add('hidden');
