@@ -15,16 +15,20 @@
   --text-color: #FFF;
   --button: #8257E5;
   --border: #29292E;
-  --border-menu-mobile: #A8A8B3;
+  --border-menu-mobile: #29292E;
   --text-color-menu-mobile: #E1E1E6;
 }
 
 body {
   background-color: var(--backgrond);
+  width: 100%;
+  height: 100%;
+
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: space-between;
+  position: relative;
 }
 
 /* ========== Menu ========== */
@@ -34,6 +38,7 @@ nav {
   align-items: center;
   justify-content: space-between;
   margin-top: 4rem;
+  margin-bottom: 6rem;
 }
 
 nav ul {
@@ -41,25 +46,32 @@ nav ul {
   gap: 3.2rem;
 }
 
-nav button {  
+.button {  
   background-color: transparent;
   border-color: var(--button);
   border-radius: .6rem;
   padding: 1.1rem 3.8rem;
+  cursor: pointer;
 }
 
+.button:hover {
+  box-shadow: inset 0 70px 35px -15px var(--button);
+  transition: 0.6s ease;
+}
+
+/*========== main ==========*/
 
 main{
-  
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: space-between;
-  margin-top: 6rem;
+ 
 }
+
 main h1, .stroke {
   font-size: 8rem;
-  font-weight: 700;
+  font-weight: 700;  
 }
 
 .stroke{
@@ -67,7 +79,21 @@ main h1, .stroke {
   text-shadow: -1px -1px 0 var(--button), 1px -1px 0 var(--button), -1px 1px 0 var(--button), 1px 1px 0 var(--button);
 }
 
-.rocketcoffee{
+.stroke {
+  transform: rotate(0);
+  animation: fade-in 1.5s ease-in-out forwards;
+}
+
+@keyframes fade-in {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+.rocket-coffee{
   height: 50.6rem;
 }
 
@@ -75,10 +101,206 @@ main h1, .stroke {
   position: absolute;
   top: 0;
   right: 0;
+  pointer-events: none;
 }
 
 .blur-bottom {
   position: absolute;
   bottom: 0;
   left: 0;
+  pointer-events: none;
+}
+
+/* ========== Responsividade ==========*/
+
+@media (max-width: 1024px) {
+  body{
+    padding: 0 7rem;
+  }
+
+  nav {
+    width: 100%;
+  }
+
+  main h1, main .stroke {
+    font-size: 6rem;
+  }
+}
+
+/* ========== 769px ==========*/
+
+@media (max-width: 769px) {
+  body{
+    padding: 0 2rem;
+  }
+  
+  nav {
+    width: 100%;
+    font-size: 1.2rem;
+  }
+
+  nav buttom {
+    padding: 1rem 2rem;
+  }
+  
+  main h1, main .stroke {
+    font-size: 6rem;
+  }
+
+  .blur-top, .blur-bottom {
+    width: 40rem;
+  }
+}
+
+/* ========== 426px ==========*/
+
+@media (max-width: 426px) {
+  body {
+    padding: 0;
+  }
+
+  nav {
+    margin: 0;
+    padding: 3rem 2rem 1.5rem;
+    border-bottom: solid var(--border-menu-mobile) 1px;
+  }
+  .button-menu {
+    background-color: transparent;
+    border: none;
+    cursor: pointer;
+  }
+
+  .button-menu:hover {
+    transform: scale(1.5);
+    transition: 0.7s ease;
+  }
+  .cotent-mobile {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    padding: 3rem;
+  }
+
+  .cotent-mobile h3 {
+    font-size: 3rem;
+    font-weight: 700;
+    margin-bottom: 8.8rem;
+  }
+
+  .cotent-mobile .button {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    margin-bottom: 9.8rem;
+  }
+
+  .cotent-mobile .button:hover .arrow {
+    animation: swing .6s ease;
+    transform-origin: center;
+    transition: transform 0.4s ease;
+  }
+
+  @keyframes swing {
+    0% {
+      transform: translateX(0);
+    }
+    50% {
+      transform: translateX(10px);
+    }
+    100% {
+      transform: translateX(0);
+    }
+  }
+
+  main h1, main .stroke {
+    font-size: 5rem;
+  }
+  
+  .rocket-coffee {
+    width: 100%;
+    height: 23.3rem;
+    margin-top: 2.5rem;
+  }
+
+  .blur-bottom{
+    width: 100%;
+    right: 1;
+  }
+
+  .modal {
+    position: absolute;
+    z-index: 1;
+    width: 100%;
+    height: 100%;
+    background-color: var(--backgrond);
+  }
+
+  .modal-animation {
+    animation-name: slideIn;
+    animation-duration: 0.5s;
+    animation-timing-function: ease;
+  }
+  
+  @keyframes slideIn {
+    0% {
+      transform: translateX(-100%);
+    }
+    100% {
+      transform: translateX(0);
+    }
+  }
+  
+  .modal-animation-close {
+    animation-name: slideOut;
+    animation-duration: 0.5s;
+    animation-timing-function: ease;
+  }
+  
+  @keyframes slideOut {
+    0% {
+      transform: translateX(0);
+    }
+    100% {
+      transform: translateX(-100%);
+    }
+  }
+
+  .modal ul li{
+    border-top: solid 1px var(--border-menu-mobile);
+    border-bottom: solid 1px var(--border-menu-mobile);
+   
+    padding: 1.7rem 2.5rem;
+  }
+
+  .modal ul li a {
+    color: var(--text-color-menu-mobile);
+  }
+  
+  #selected{
+    
+    border-left: solid 5px var(--button);
+  }
+
+  #selected a{
+    color: #FFF;
+  }
+}
+
+/* ========== 376px ==========*/
+
+@media (max-width: 376px) {
+   
+}
+
+/* ========== 320px ==========*/
+
+@media (max-width: 320px) {
+ 
+}
+
+/*========== other ==========*/
+
+.hidden {
+  display: none;
 }
