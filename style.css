@@ -23,7 +23,7 @@ body {
   background-color: var(--backgrond);
   width: 100%;
   height: 100%;
-
+  
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -289,16 +289,16 @@ main h1, .stroke {
   }
 }
 
-/* ========== 376px ==========*/
-
-@media (max-width: 376px) {
-   
-}
-
 /* ========== 320px ==========*/
 
 @media (max-width: 320px) {
- 
+  main h1, main .stroke {
+    font-size: 4rem;
+  }
+
+  .cotent-mobile h3 {
+    font-size: 2.5rem;
+  }
 }
 
 /*========== other ==========*/
