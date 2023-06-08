@@ -9,7 +9,7 @@ const modal = document.querySelector('.modal')
 
 document.addEventListener('DOMContentLoaded', function() { // DOMContent executa depois que o html é carregado
   function checkScreenWidth() {
-    if (window.innerWidth <= 425) {
+    if (window.innerWidth <= 500) {
       buttonMenu.classList.remove('hidden')
       menu.classList.add('hidden');
       button.classList.add('hidden');
@@ -40,12 +40,24 @@ function openModal() {
     if(modal.classList.contains('hidden')) {
       
       modal.classList.remove('hidden')
-      modal.classList.add('modal-animation');
-      buttonMenu.innerHTML = '<img src="./assets/menu-buguer-close.svg" alt="">';
+      modal.classList.add('modal-animation')
+      
+      var newImage = new Image();
+      newImage.src = './assets/menu-buguer-close.svg';
+      newImage.onload = function() {
+      buttonMenu.innerHTML = '';
+      buttonMenu.appendChild(newImage);
+      };
+
     } else {
       modal.classList.add('modal-animation-close');
-      buttonMenu.innerHTML = '<img src="./assets/menu-buguer-open.svg" alt="">';
-     
+      
+      var newImage = new Image();
+      newImage.src = './assets/menu-buguer-open.svg';
+      newImage.onload = function() {
+      buttonMenu.innerHTML = '';
+      buttonMenu.appendChild(newImage);
+      };
 
       setTimeout(function() {
         modal.classList.add('hidden');
